@@ -4,7 +4,7 @@
   "description": "## POST /api/users/register",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "migrate": "knex migrate:latest"
   },
   "keywords": [],
@@ -21,5 +21,13 @@
   "devDependencies": {
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.7"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jstreich13/leyenda-server.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jstreich13/leyenda-server/issues"
+  },
+  "homepage": "https://github.com/jstreich13/leyenda-server#readme"
 }

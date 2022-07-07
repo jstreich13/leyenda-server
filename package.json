@@ -4,7 +4,7 @@
   "description": "## POST /api/users/register",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "migrate": "knex migrate:latest"
   },
   "keywords": [],

@@ -10,7 +10,7 @@ const authenticate = require("../middleware/authenticate");
 // - Creates a new user.
 // - Expected body: { first_name, last_name, phone, address, email, password }
 router.post("/register", (req, res) => {
-  const { first_name, last_name, phone, address, email, password } = req.body;
+  const { first_name, last_name, email, password } = req.body;
 
   if (!first_name || !last_name || !email || !password) {
     return res.status(400).send("Please enter the required fields.");
@@ -28,10 +28,10 @@ router.post("/register", (req, res) => {
     .insert(newUser)
     .then(() => {
       res.status(201).send("Registered successfully");
-    })
-    .catch(() => {
-      res.status(400).send("Failed registration");
     });
+  // .catch(() => {
+  //   res.status(400).send("Failed registration");
+  // });
 });
 
 // ## POST /api/users/login
@@ -42,9 +42,9 @@ router.post("/register", (req, res) => {
 router.post("/login", (req, res) => {
   const { email, password } = req.body;
 
-  if (!email || !password) {
-    return res.status(400).send("Please enter the required fields");
-  }
+  // if (!email || !password) {
+  //   return res.status(400).send("Please enter the required fields");
+  // }
 
   // Find the user
   knex("users")
@@ -53,9 +53,9 @@ router.post("/login", (req, res) => {
     .then((user) => {
       const isPasswordCorrect = bcrypt.compareSync(password, user.password);
 
-      if (!isPasswordCorrect) {
-        return res.status(400).send("Invalid password");
-      }
+      // if (!isPasswordCorrect) {
+      //   return res.status(400).send("Invalid password");
+      // }
 
       const token = jwt.sign(
         { id: user.id, email: user.email },
@@ -64,10 +64,10 @@ router.post("/login", (req, res) => {
       );
 
       res.json({ token });
-    })
-    .catch(() => {
-      res.status(400).send("Invalid credentials");
     });
+  // .catch(() => {
+  //   res.status(400).send("Invalid credentials");
+  // });
 });
 
 // ## GET /api/users/current

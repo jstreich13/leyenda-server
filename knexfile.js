@@ -6,6 +6,7 @@ const connections = {
       user: "root",
       password: "rootroot",
       database: "leyenda_data",
+      charset: "utf8",
     },
   },
   production: {

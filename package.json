@@ -1,5 +1,5 @@
 {
-  "name": "jwt-auth",
+  "name": "leyenda-server",
   "version": "1.0.0",
   "description": "## POST /api/users/register",
   "main": "index.js",

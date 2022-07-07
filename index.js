@@ -7,21 +7,11 @@ const userRoutes = require("./routes/users");
 app.use(cors());
 app.use(express.json());
 
-// const { MongoClient } = require("mongodb");
 const mongoose = require("mongoose");
-// const { StringDecoder } = require("string_decoder");
-
-// main().catch((err) => console.log(err));
 
 mongoose.connect(
   "mongodb+srv://jstreich:1234@jfscluster.ibjzj.mongodb.net/?retryWrites=true&w=majority"
 );
-
-// async function main() {
-//   await mongoose.connect(
-//     "mongodb+srv://jstreich:1234@jfscluster.ibjzj.mongodb.net/?retryWrites=true&w=majority"
-//   );
-// }
 
 const noteSchema = new mongoose.Schema({
   text: String,
